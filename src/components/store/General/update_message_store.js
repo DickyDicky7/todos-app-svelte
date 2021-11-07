@@ -17,3 +17,7 @@ const createUpdateMessage = (defaultMessage) => {
 export const app_title_update_message = createUpdateMessage(
   "What needs to be done?"
 );
+
+export const open_title_update_message = createUpdateMessage(
+  "Welcome"
+);

@@ -1,0 +1,19 @@
+form {
+  display: flex;
+  margin: 20px 0;
+
+  input {
+    width: 100%;
+    flex-wrap: wrap;
+    margin-right: 10px;
+    border: 3px solid #384e78;
+    outline: none;
+    color: #384e78;
+    font-size: 1rem;
+    font-weight: bold;
+
+    &:focus {
+      border: 3px solid #fff;
+    }
+  }
+}

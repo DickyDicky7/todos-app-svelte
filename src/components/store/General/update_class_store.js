@@ -16,3 +16,5 @@ const createUpdateClass = (defaultClass) => {
 
 export const app_title_class = createUpdateClass("app_title");
 export const todo_remaining_class = createUpdateClass("todo_remaining");
+
+export const open_title_class = createUpdateClass("open_title");

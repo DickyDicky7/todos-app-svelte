@@ -1,15 +1,15 @@
 import { writable } from "svelte/store";
 
-const createNotifyError = () => {
+const createNotifySuccess = () => {
   const { subscribe, set, update } = writable(false);
 
   return {
     subscribe,
-    test: (newTodo) => {
-      if (newTodo.text === "") set(true);
+    checkInput: (inputValue) => {
+      if (inputValue !== "") set(true);
     },
     continue: () => set(false),
   };
 };
 
-export const notifyError = createNotifyError();
+export const notifySuccess_login = createNotifySuccess();
