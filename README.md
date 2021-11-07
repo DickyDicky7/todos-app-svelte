@@ -1,6 +1,6 @@
 ![Vercel](http://therealsujitk-vercel-badge.vercel.app/?app=therealsujitk-vercel-badge&style=flat-square&logo=true) 
 
-https://todos-app-svelte.vercel.app/
+https://todos-app-svelte-dickydicky7.vercel.app/
 
 *Psst — looking for a more complete solution? Check out [SvelteKit](https://kit.svelte.dev), the official framework for building web applications of all sizes, with a beautiful development experience and flexible filesystem-based routing.*
 
