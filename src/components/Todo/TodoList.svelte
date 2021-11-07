@@ -18,6 +18,6 @@
   {/each}
 </ul>
 
-<style type="text/scss">
+<style lang="scss">
   @import "./TodoList.scss";
 </style>

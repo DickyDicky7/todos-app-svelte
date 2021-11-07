@@ -95,6 +95,6 @@
   </Button>
 </form>
 
-<style type="text/scss">
+<style lang="scss">
   @import "./Form.scss";
 </style>

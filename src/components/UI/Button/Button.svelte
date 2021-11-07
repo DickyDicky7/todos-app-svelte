@@ -9,6 +9,6 @@
   <slot />
 </button>
 
-<style type="text/scss">
+<style lang="scss">
   @import "./Button.scss";
 </style>

@@ -11,6 +11,6 @@
   </Button>
 </div>
 
-<style type="text/scss">
+<style lang="scss">
   @import "./NotifyModal.scss";
 </style>

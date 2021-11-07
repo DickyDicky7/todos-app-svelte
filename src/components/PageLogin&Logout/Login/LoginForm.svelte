@@ -75,6 +75,6 @@
   </Button>
 </form>
 
-<style type="text/scss">
+<style lang="scss">
   @import "./LoginForm.scss";
 </style>

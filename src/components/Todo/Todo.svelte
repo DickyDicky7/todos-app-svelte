@@ -36,6 +36,6 @@
   </span>
 </div>
 
-<style type="text/scss">
+<style lang="scss">
   @import "./Todo.scss";
 </style>
