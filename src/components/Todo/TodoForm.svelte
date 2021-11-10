@@ -1,13 +1,15 @@
 <script>
   import Button from "../UI/Button/Button.svelte";
   import { todos } from "../store/Todo/todos_store";
-  import { notifyError } from "../store/General/notify_error_store";
+  import { error } from "../store/General/error_store";
   import {
-    app_title_class,
-    todo_remaining_class,
-  } from "../store/General/update_class_store";
+    appTitleState,
+    todoRemainingState,
+  } from "../store/General/active_state_store";
   import { finished } from "../store/Todo/finished_store";
-  import { app_title_update_message } from "../store/General/update_message_store";
+  import { appTitleMessage } from "../store/General/message_store";
+  import activeStateHandler from "../handler/activeStateHandler";
+  import autoMessageHandler from "../handler/autoMessageHandler";
 
   let newTodo = "";
 </script>
@@ -19,20 +21,13 @@
       done: false,
       text: newTodo,
     });
-
-    notifyError.checkInput(newTodo);
-
-    app_title_update_message.setNew(
+    error.checkInput(newTodo);
+    autoMessageHandler(
+      appTitleMessage,
       newTodo === "" ? "No tasks added" : "Task added"
     );
-    app_title_update_message.setDefault();
-
-    app_title_class.onUpdate();
-    app_title_class.offUpdate();
-
-    todo_remaining_class.onUpdate();
-    todo_remaining_class.offUpdate();
-
+    activeStateHandler(appTitleState);
+    activeStateHandler(todoRemainingState);
     newTodo = "";
   }}
 >
@@ -50,20 +45,13 @@
         done: false,
         text: newTodo,
       });
-
-      notifyError.checkInput(newTodo);
-
-      app_title_update_message.setNew(
+      error.checkInput(newTodo);
+      autoMessageHandler(
+        appTitleMessage,
         newTodo === "" ? "No tasks added" : "Task added"
       );
-      app_title_update_message.setDefault();
-
-      app_title_class.onUpdate();
-      app_title_class.offUpdate();
-
-      todo_remaining_class.onUpdate();
-      todo_remaining_class.offUpdate();
-
+      activeStateHandler(appTitleState);
+      activeStateHandler(todoRemainingState);
       newTodo = "";
     }}
   >
@@ -73,22 +61,17 @@
     class="clear"
     type="button"
     click={() => {
-      app_title_update_message.setNew(
+      autoMessageHandler(
+        appTitleMessage,
         $finished === 0
           ? "No tasks cleared"
           : $finished === 1
           ? "Task cleared"
           : `${$finished} tasks cleared`
       );
-      app_title_update_message.setDefault();
-
       todos.clear();
-
-      app_title_class.onUpdate();
-      app_title_class.offUpdate();
-
-      todo_remaining_class.onUpdate();
-      todo_remaining_class.offUpdate();
+      activeStateHandler(appTitleState);
+      activeStateHandler(todoRemainingState);
     }}
   >
     Clear
@@ -96,5 +79,5 @@
 </form>
 
 <style lang="scss">
-  @import "./Form.scss";
+  @import "./TodoForm.scss";
 </style>

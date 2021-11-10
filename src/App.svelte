@@ -1,8 +1,8 @@
 <script>
   import Todo from "./components/Todo/Todo.svelte";
   import PageLoad from "./components/PageLoad/PageLoad.svelte";
-  import Login from "./components/PageLogin&Logout/Login/Login.svelte";
-  import { login_permission } from "./components/store/PageLogin&Logout/Login/login_permisson.store";
+  import Login from "./components/Login/Login.svelte";
+  import { permission } from "./components/store/Login/permisson.store";
 
   let pageIsLoaded = false;
   setTimeout(() => {
@@ -12,7 +12,7 @@
   const component = [Login, PageLoad, Todo];
 </script>
 
-{#if $login_permission}
+{#if $permission}
   <Todo />
 {:else}
   <PageLoad {pageIsLoaded} />

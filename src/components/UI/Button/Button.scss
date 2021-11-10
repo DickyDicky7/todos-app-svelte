@@ -40,6 +40,44 @@ button {
     }
   }
 
+  &.logout {
+    position: relative;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 100%);
+    border-width: 0 0 0 3px;
+    border-left: solid #384e78;
+    background: #fff;
+    color: #384e78;
+    font-size: 1rem;
+    transition: 0.25s;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #384e78;
+      width: 100%;
+      height: 100%;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: 0.25s;
+      z-index: -1;
+    }
+
+    &:hover {
+      color: #fff;
+      transition: 0.25s;
+    }
+
+    &:hover::before {
+      transform: scaleX(100%);
+      transition: 0.25s;
+    }
+  }
+
   &.add {
     /* grid-area: add; */
     position: relative;
@@ -148,5 +186,17 @@ button {
       background: #fff;
       color: #6aab9c;
     }
+  }
+
+  &.toggle-navigation {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -100%);
+    width: 50px;
+    height: 25px;
+    border: none;
+    background: #384e78;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
   }
 }

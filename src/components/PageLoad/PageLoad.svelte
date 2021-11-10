@@ -7,6 +7,7 @@
     width: 100vw;
     height: 100vh;
     position: fixed;
+    user-select: none;
   }
 
   .page_load.still_load {

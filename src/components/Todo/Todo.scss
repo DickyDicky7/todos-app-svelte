@@ -1,5 +1,7 @@
 #todo_board {
+  position: relative;
   padding: 20px 20px;
+  user-select: none;
 
   .app_title {
     position: relative;
@@ -31,7 +33,7 @@
       z-index: -1;
     }
 
-    &.update {
+    &.active {
       color: #fff;
       transition: 0.25s 0.75s;
 
@@ -72,7 +74,7 @@
       z-index: -1;
     }
 
-    &.update {
+    &.active {
       color: #fff;
       transition: 0.25s;
 

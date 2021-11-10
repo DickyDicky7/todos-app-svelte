@@ -1,39 +1,44 @@
 <script>
-  import Form from "./Form.svelte";
+  import Form from "./TodoForm.svelte";
   import TodoList from "./TodoList.svelte";
+  import Navigation from "./Navigation.svelte";
   import NotifyModal from "../UI/NotifyModal/NotifyModal.svelte";
   import { remaining } from "../store/Todo/remaining_store";
-  import { notifyError } from "../store/General/notify_error_store";
+  import { error } from "../store/General/error_store";
+  import { notify } from "../store/General/notify_store";
   import {
-    app_title_class,
-    todo_remaining_class,
-  } from "../store/General/update_class_store";
-  import { app_title_update_message } from "../store/General/update_message_store";
+    appTitleState,
+    todoRemainingState,
+  } from "../store/General/active_state_store";
+  import { appTitleMessage } from "../store/General/message_store";
 </script>
 
-{#if $notifyError}
+{#if $notify.popUp && $notify.type === "eInput"}
   <NotifyModal
     class="error"
     title="Hey, hey, hey!"
     content="You cannot leave the form blank, please put something there..."
     buttonText="Got it!"
     click={() => {
-      notifyError.continue();
+      error.continue();
     }}
   />
 {/if}
 
 <div id="todo_board">
-  <span class={$app_title_class}>{$app_title_update_message}</span>
+  <span class="app_title" class:active={$appTitleState}>
+    {$appTitleMessage}
+  </span>
   <Form />
   <TodoList />
-  <span class={$todo_remaining_class}>
+  <span class="todo_remaining" class:active={$todoRemainingState}>
     {$remaining === 0
       ? `Seems like there aren't any tasks left.`
       : $remaining === 1
       ? `There is ${$remaining} remaining task`
       : `There are ${$remaining} remaining tasks`}
   </span>
+  <Navigation />
 </div>
 
 <style lang="scss">

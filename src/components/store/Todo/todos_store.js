@@ -12,8 +12,8 @@ const createTodos = () => {
 
   return {
     subscribe,
-    add: (newTodo) => {
-      update((todos) => {
+    add: newTodo => {
+      update(todos => {
         return newTodo.text === ""
           ? todos
           : [
@@ -27,9 +27,9 @@ const createTodos = () => {
       });
     },
     clear: () => {
-      update((todos) => todos.filter((todo) => !todo.done));
+      update(todos => todos.filter(todo => !todo.done));
     },
-    update: () => update((todos) => todos),
+    update: () => update(todos => todos),
     set,
   };
 };

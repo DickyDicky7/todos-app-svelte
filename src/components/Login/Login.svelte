@@ -1,30 +1,31 @@
 <script>
   import LoginForm from "./LoginForm.svelte";
-  import NotifyModal from "../../UI/NotifyModal/NotifyModal.svelte";
-  import { notifyError } from "../../store/General/notify_error_store";
-  import { notifySuccess_login } from "../../store/General/notify_success_store";
+  import NotifyModal from "../UI/NotifyModal/NotifyModal.svelte";
+  import { notify } from "../store/General/notify_store";
+  import { error } from "../store/General/error_store";
+  import { success } from "../store/General/success_store";
 </script>
 
-{#if $notifyError}
+{#if $notify.popUp && $notify.type === "eInput"}
   <NotifyModal
     class="error"
     title="Oops!... Something went wrong"
     content="Account not found or wrong username and password, please check again..."
     buttonText="Got it!"
     click={() => {
-      notifyError.continue();
+      error.continue();
     }}
   />
 {/if}
 
-{#if $notifySuccess_login}
+{#if $notify.popUp && $notify.type === "sInput"}
   <NotifyModal
     class="success"
-    title="Login successful"
+    title="Login successful!"
     content="Please wait..."
     buttonText="Got it!"
     click={() => {
-      notifySuccess_login.continue();
+      success.continue();
     }}
   />
 {/if}
