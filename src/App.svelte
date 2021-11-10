@@ -12,12 +12,12 @@
   const component = [Login, PageLoad, Todo];
 </script>
 
-{#if $permission}
+<!-- {#if $permission} -->
   <Todo />
-{:else}
-  <PageLoad {pageIsLoaded} />
-  <Login />
-{/if}
+<!-- {:else} -->
+  <!-- <PageLoad {pageIsLoaded} /> -->
+  <!-- <Login /> -->
+<!-- {/if} -->
 
 <style>
 </style>

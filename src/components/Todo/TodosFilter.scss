@@ -1,0 +1,24 @@
+select {
+  appearance: none;
+  position: fixed;
+  top: 2%;
+  left: 1.5%;
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  outline: none;
+  border: 3px solid #384e78;
+  background: #fff;
+  color: #384e78;
+  font-weight: bold;
+  font-size: 1rem;
+
+  option {
+    appearance: none;
+    outline: none;
+    border: 3px solid #384e78;
+    color: #384e78;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+}

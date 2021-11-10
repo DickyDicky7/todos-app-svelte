@@ -1,7 +1,6 @@
 import { derived } from "svelte/store";
-import { todos } from "./todos_store";
-
+import { filtered } from "./filtered";
 export const finished = derived(
-  todos,
-  $todos => $todos.filter(todo => todo.done).length
+  filtered,
+  $filtered => $filtered.filter(todo => todo.done).length
 );

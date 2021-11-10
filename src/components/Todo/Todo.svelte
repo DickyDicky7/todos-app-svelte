@@ -2,6 +2,7 @@
   import Form from "./TodoForm.svelte";
   import TodoList from "./TodoList.svelte";
   import Navigation from "./Navigation.svelte";
+  import TodosFilter from "./TodosFilter.svelte";
   import NotifyModal from "../UI/NotifyModal/NotifyModal.svelte";
   import { remaining } from "../store/Todo/remaining_store";
   import { error } from "../store/General/error_store";
@@ -26,6 +27,7 @@
 {/if}
 
 <div id="todo_board">
+  <TodosFilter />
   <span class="app_title" class:active={$appTitleState}>
     {$appTitleMessage}
   </span>

@@ -1,9 +1,10 @@
 <script>
   import { todos } from "../store/Todo/todos_store";
+  import { filtered } from "../store/Todo/filtered";
 </script>
 
 <ul>
-  {#each $todos as todo (todo.id)}
+  {#each $filtered as todo (todo.id)}
     <li>
       <input
         type="checkbox"

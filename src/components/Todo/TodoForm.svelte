@@ -20,6 +20,7 @@
       id: String(Math.random()),
       done: false,
       text: newTodo,
+      day: `Day ${String(Math.floor(Math.random() * 100) + 1)}`,
     });
     error.checkInput(newTodo);
     autoMessageHandler(
@@ -44,6 +45,7 @@
         id: String(Math.random()),
         done: false,
         text: newTodo,
+        day: `Day ${String(Math.floor(Math.random() * 100) + 1)}`,
       });
       error.checkInput(newTodo);
       autoMessageHandler(
